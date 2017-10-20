@@ -1,0 +1,48 @@
+{
+  "ignition": { "version": "2.1.0" },
+  "systemd": {
+    "units": [
+      {
+        "name": "update-engine.service",
+        "mask": true
+      },
+      {
+        "name": "locksmithd.service",
+        "mask": true
+      },
+      {
+        "name": "configure.service",
+        "enable": true,
+        "contents": "[Unit]\nDescription=A configuration unit used for deployment\nType=idle\n\n[Service]\nExecStart=/usr/bin/script -c \"/home/core/post-install-tasks.sh jenkins latest\" /var/log/platform/install-configure.log\n\n[Install]\nWantedBy=multi-user.target"
+      }
+    ]
+  },
+  "storage": {
+    "files": [
+      {
+        "filesystem": "root",
+        "path": "/etc/coreos/update.conf",
+        "contents": {
+          "source": "data:,%0AREBOOT_STRATEGY%3D%22off%22",
+          "verification": {}
+        },
+        "mode": 420,
+        "user": {},
+        "group": {}
+      }
+    ]
+  },
+  "passwd": {
+    "users": [
+      {
+        "name": "maarten",
+        "passwordHash": "$6$rounds=4096$8ccdclDS$WqinYTUD9L6Yakm7H9PqHoCx59iWit2rNlpCwpwJEoapNtcGP.X16.ss18dsI24MjsB1hSHczlT9EAvDM8Udb1",
+        "create": {
+          "groups": [
+            "sudo",
+            "docker"
+          ]
+        }
+      }
+    ]
+  },

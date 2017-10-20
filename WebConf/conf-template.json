@@ -1,0 +1,15 @@
+{
+  "ignition": { "version": "2.1.0" },
+  "systemd": {
+    "units": [
+      {
+        "name": "update-engine.service",
+        "mask": true
+      },
+      {
+        "name": "locksmithd.service",
+        "mask": true
+      },
+      {
+        "name": "configure.service",
+        "enable": true,

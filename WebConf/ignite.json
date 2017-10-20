@@ -1,0 +1,12 @@
+{
+  "ignition": { "version": "2.1.0" },
+  "storage": {
+    "filesystems": [{
+      "mount": {
+        "device": "/dev/sda",
+        "format": "ext4",
+        "wipeFilesystem": true
+      }
+    }]
+  }
+}
