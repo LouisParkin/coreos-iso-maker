@@ -151,3 +151,24 @@ poweroff
 
 ### Any files that will be required by the install-tasks script are copied to the oem-data directory in cdrom/coreos/ before rebuilding the iso.
 ##### This is done to allow as much customization as possible without relying on a network connection or access to the Internet.
+
+### Once the installation of CoreOS has completed, there will be a user account 'coreuser' with password 'coreuser'.
+##### This is done to eliminate the need for access to the 'core' user account, as that account only works with ssh keys.  Please feel free to add an ssh key to the deployment script, install-tasks.sh.
+```bash
+echo "  \"passwd\": {" >> /home/core/conf.json
+echo "    \"users\": [" >> /home/core/conf.json
+echo "      {" >> /home/core/conf.json
+echo "        \"passwordHash\": \"\$6\$rounds=4096\$jloe.6ymkfMoG24\$OooyTioGGuOv21KpV2uOzsHoSpZK6e3Vdq/vyXGDWAGeT7.6wWq3rlMW5Nk0PyiCmAs6iryYzUiNTnYVEeP.l.\"," >> /home/core/conf.json
+echo "        \"name\": \"coreuser\"," >> /home/core/conf.json
+echo "        \"create\": {" >> /home/core/conf.json
+echo "          \"groups\": [" >> /home/core/conf.json
+echo "            \"sudo\"," >> /home/core/conf.json
+echo "            \"docker\"" >> /home/core/conf.json
+echo "          ]" >> /home/core/conf.json
+echo "        }" >> /home/core/conf.json
+echo "      }" >> /home/core/conf.json
+echo "    ]" >> /home/core/conf.json
+echo "  }" >> /home/core/conf.json
+echo "}" >> /home/core/conf.json
+```
+##### And remember to remove, disable, change the password, or enable ssh-only authentication for the coreuser account if the intention is to use it in a production environment, as this account is clearly for convenience, and not safe to leave the way it is.
