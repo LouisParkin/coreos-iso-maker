@@ -49,7 +49,7 @@ sudo chown core:core /home/core/conftemplate.json
 cont=0
 isvmware=0
 
-export SSH_RSA=$(cat/mnt/cdrom/coreos/oem-data/ssh-key.pem.pub)
+export SSH_RSA=$(cat /mnt/cdrom/coreos/oem-data/ssh-key.pem.pub)
 
 echo "Your CoreOs deployment is about to begin."
 
