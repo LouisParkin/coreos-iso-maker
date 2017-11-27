@@ -106,6 +106,13 @@ sudo mkdir oem-data
 cd oem-data
 
 # Generate a ssh key
+if [ -f ${PROJROOT}/ssh-key.pem ]; then
+  chmod 777 ${PROJROOT}/ssh-key.pem
+  rm ${PROJROOT}/ssh-key.pem
+fi
+if [ -f ${PROJROOT}/ssh-key.pem.pub ]; then
+  rm ${PROJROOT}/ssh-key.pem.pub
+fi
 ssh-keygen -t rsa -b 4096 -q -N "" -f ${PROJROOT}/ssh-key.pem
 sudo cp ${PROJROOT}/ssh-key.pem.pub .
 chmod 400 ${PROJROOT}/ssh-key.pem 
