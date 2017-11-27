@@ -108,6 +108,7 @@ cd oem-data
 # Generate a ssh key
 ssh-keygen -t rsa -b 4096 -q -N "" -f ${PROJROOT}/ssh-key.pem
 sudo cp ${PROJROOT}/ssh-key.pem.pub .
+chmod 400 ${PROJROOT}/ssh-key.pem 
 
 # Copy installation image used to install to non-vmware hosts
 sudo cp ${PROJROOT}/CoreOsProdIso/coreos_production_image.bin.bz2 coreos_production_image.bin.bz2
