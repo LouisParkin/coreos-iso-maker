@@ -49,6 +49,7 @@ sudo chown core:core /home/core/conftemplate.json
 cont=0
 isvmware=0
 
+export SSH_RSA=$(cat/mnt/cdrom/coreos/oem-data/ssh-key.pem.pub)
 
 echo "Your CoreOs deployment is about to begin."
 
@@ -89,8 +90,10 @@ echo "  }," >> /home/core/conf.json
 echo "  \"passwd\": {" >> /home/core/conf.json
 echo "    \"users\": [" >> /home/core/conf.json
 echo "      {" >> /home/core/conf.json
-echo "        \"passwordHash\": \"\$6\$rounds=4096\$jloe.6ymkfMoG24\$OooyTioGGuOv21KpV2uOzsHoSpZK6e3Vdq/vyXGDWAGeT7.6wWq3rlMW5Nk0PyiCmAs6iryYzUiNTnYVEeP.l.\"," >> /home/core/conf.json
 echo "        \"name\": \"coreuser\"," >> /home/core/conf.json
+echo "        \"sshAuthorizedKeys\": [" >> /home/core/conf.json
+echo "          \"${SSH_RSA}\"" >> /home/core/conf.json
+echo "        ]," >> /home/core/conf.json
 echo "        \"create\": {" >> /home/core/conf.json
 echo "          \"groups\": [" >> /home/core/conf.json
 echo "            \"sudo\"," >> /home/core/conf.json

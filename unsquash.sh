@@ -105,6 +105,10 @@ cd coreos
 sudo mkdir oem-data
 cd oem-data
 
+# Generate a ssh key
+ssh-keygen -t rsa -b 4096 -q -N "" -f ${PROJROOT}/ssh-key.pem
+sudo cp ${PROJROOT}/ssh-key.pem.pub .
+
 # Copy installation image used to install to non-vmware hosts
 sudo cp ${PROJROOT}/CoreOsProdIso/coreos_production_image.bin.bz2 coreos_production_image.bin.bz2
 sudo chown ${USER}:${USER} coreos_production_image.bin.bz2
