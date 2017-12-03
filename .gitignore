@@ -2,3 +2,7 @@ work/
 *.iso
 *.bz2
 *.tar
+*.pem
+*.pub
+WebConf/
+.bash_profile
