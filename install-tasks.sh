@@ -109,7 +109,7 @@ echo "}" >> /home/core/conf.json
 cont=0
 isvmware=0
 if [ "$RUNMODE" == "jenkins" ]; then
-  sudo coreos-install -d /dev/sda -i /home/core/conf.json -o vmware_raw -f /mnt/cdrom/coreos/oem-data/coreos_production_vmware_raw_image.bin.bz2 -b http://dockerhub.entersect.co.za:8000/v1/update/
+  sudo coreos-install -d /dev/sda -i /home/core/conf.json -o vmware_raw -f /mnt/cdrom/coreos/oem-data/coreos_production_vmware_raw_image.bin.bz2
   cont=1
   isvmware=1
 else
@@ -120,13 +120,13 @@ else
     read input
     if [ "$input" == "yes" ]
     then
-       sudo coreos-install -d /dev/sda -i /home/core/conf.json -o vmware_raw -f /mnt/cdrom/coreos/oem-data/coreos_production_vmware_raw_image.bin.bz2 -b http://dockerhub.entersect.co.za:8000/v1/update/
+       sudo coreos-install -d /dev/sda -i /home/core/conf.json -o vmware_raw -f /mnt/cdrom/coreos/oem-data/coreos_production_vmware_raw_image.bin.bz2
        cont=1
        isvmware=1
     else
       if [ "$input" == "no" ]
       then
-         sudo coreos-install -d /dev/sda -i /home/core/conf.json -f /mnt/cdrom/coreos/oem-data/coreos_production_image.bin.bz2 -b http://dockerhub.entersect.co.za:8000/v1/update/
+         sudo coreos-install -d /dev/sda -i /home/core/conf.json -f /mnt/cdrom/coreos/oem-data/coreos_production_image.bin.bz2
          cont=1
          isvmware=0
       else
