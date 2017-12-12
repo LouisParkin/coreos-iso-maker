@@ -42,7 +42,7 @@ OR
 ./unsquash jenkins release; ./resquash.sh; ./build-iso.sh
 ```
 
-Assuming the build succeeded, in the root directory of the project there will be a file named "coreos.alpha.iso"
+Assuming the build succeeded, in the root directory of the project there will be a file named "coreos.stable.iso"
 
 # Usage
 
@@ -55,17 +55,17 @@ cd ${PROJROOT}/CoreOsProdIso/
 
 ISOIMAGE="${PROJROOT}/CoreOsProdIso/coreos_production_iso_image.iso"
 if [ ! -f $ISOIMAGE ]; then
-  wget --no-check-certificate https://alpha.release.core-os.net/amd64-usr/current/coreos_production_iso_image.iso
+  wget --no-check-certificate https://stable.release.core-os.net/amd64-usr/current/coreos_production_iso_image.iso
 fi
 
 GENERICIMAGE="${PROJROOT}/CoreOsProdIso/coreos_production_image.bin.bz2"
 if [ ! -f $GENERICIMAGE ]; then
-  wget --no-check-certificate https://alpha.release.core-os.net/amd64-usr/current/coreos_production_image.bin.bz2
+  wget --no-check-certificate https://stable.release.core-os.net/amd64-usr/current/coreos_production_image.bin.bz2
 fi
 
 VMWAREIMAGE="${PROJROOT}/CoreOsProdIso/coreos_production_vmware_raw_image.bin.bz2"
 if [ ! -f $VMWAREIMAGE ]; then
-  wget --no-check-certificate https://alpha.release.core-os.net/amd64-usr/current/coreos_production_vmware_raw_image.bin.bz2
+  wget --no-check-certificate https://stable.release.core-os.net/amd64-usr/current/coreos_production_vmware_raw_image.bin.bz2
 fi
 ```
 ##### This is done to be able to bake these images into the ISO, meaning your deployment doesn't require an Internet connection.  Also, it is useful to be able to choose to install the vmware image from the CoreOs ISO.

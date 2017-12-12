@@ -4,7 +4,7 @@ export PROJROOT=$PWD
 export ISONAME=$1
 
 if [ "$ISONAME" == "" ]; then
-  export ISONAME="coreos.alpha.iso"
+  export ISONAME="coreos.stable.iso"
 fi
 
 if  [ ! -d dev-channel ]; then
@@ -26,7 +26,7 @@ if [ -f ../../$ISONAME ]; then
 fi
 
 sudo mkisofs -v -l -r -J -o ../../$ISONAME -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table .
-sudo isohybrid ../../coreos.alpha.iso
+sudo isohybrid ../../coreos.stable.iso
 cd ../../
 
 cd ${PROJROOT}
