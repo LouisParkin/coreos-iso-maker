@@ -67,7 +67,7 @@ fi
 
 mkdir iso
 
-# https://alpha.release.core-os.net/amd64-usr/current/
+# https://stable.release.core-os.net/amd64-usr/current/
 # Check if iso and images exist.
 LASTDIR=${PWD}
 if  [ ! -d ${PROJROOT}/CoreOsProdIso ]; then
@@ -78,17 +78,17 @@ cd ${PROJROOT}/CoreOsProdIso/
 
 ISOIMAGE="${PROJROOT}/CoreOsProdIso/coreos_production_iso_image.iso"
 if [ ! -f $ISOIMAGE ]; then
-  wget --no-check-certificate https://alpha.release.core-os.net/amd64-usr/current/coreos_production_iso_image.iso
+  wget --no-check-certificate https://stable.release.core-os.net/amd64-usr/current/coreos_production_iso_image.iso
 fi
 
 GENERICIMAGE="${PROJROOT}/CoreOsProdIso/coreos_production_image.bin.bz2"
 if [ ! -f $GENERICIMAGE ]; then
-  wget --no-check-certificate https://alpha.release.core-os.net/amd64-usr/current/coreos_production_image.bin.bz2
+  wget --no-check-certificate https://stable.release.core-os.net/amd64-usr/current/coreos_production_image.bin.bz2
 fi
 
 VMWAREIMAGE="${PROJROOT}/CoreOsProdIso/coreos_production_vmware_raw_image.bin.bz2"
 if [ ! -f $VMWAREIMAGE ]; then
-  wget --no-check-certificate https://alpha.release.core-os.net/amd64-usr/current/coreos_production_vmware_raw_image.bin.bz2
+  wget --no-check-certificate https://stable.release.core-os.net/amd64-usr/current/coreos_production_vmware_raw_image.bin.bz2
 fi
 
 cd ${LASTDIR}
